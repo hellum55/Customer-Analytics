@@ -1,7 +1,7 @@
 library(foreign)
 library(lavaan)
 ####Load the data:
-data <- readxl::read_excel("~/Cand. merc/Customer-Analytics/Explaining customer behavior/Case Study/Dataset.xlsx")
+data <- readxl::read_excel("~/Cand. Merc./Customer-Analytics/Explaining customer behavior/Case Study/Dataset.xlsx")
 data$No <- NULL
 str(data)
 
@@ -11,6 +11,7 @@ for (variable in variable_names) {
   data[[variable]] <- as.numeric(data[[variable]])
 }
 summary(data)
+mean(data$Q1)
 ####Firstly we will do the EFA analysis:
 ####Check if Exploratory factor analysis (EFA) applies
 cormatrix <- cor(data[, c(1:25)])
@@ -108,7 +109,7 @@ modificationindices(fit, sort = T, minimum.value = 10, op = "~~")
 #on two factors (as in EFA). Cross-loading goes against one of the principles of unidimensionality in SEM. 
 #We delete Q3 from the analysis and re-run CFA. 
 set.seed(1234)
-CFA.model <- 'CPA =~ Q1 + Q2 + Q4
+CFA.model <- 'CPA =~ Q1 + Q2 + Q3 + Q4
              RA =~ Q5 + Q6 + Q7 + Q8 + Q9
              CPL =~ Q10 + Q11 + Q12
              TRI =~ Q13 + Q14 + Q15
