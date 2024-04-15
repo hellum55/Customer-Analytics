@@ -75,7 +75,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r}
 library(foreign)
-data <- read.spss("~/Cand. Merc./Customer-Analytics/Explaining customer behavior/HBAT.sav", to.data.frame=TRUE)
+data <- read.spss("HBAT.sav", to.data.frame=TRUE)
 ```
 ```{r}
 # install.packages("lavaan", dependencies=TRUE)

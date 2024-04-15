@@ -10,7 +10,7 @@ library(tidyverse)
 
 
 #data
-load("~/.../workout3.rda")
+load("workout3.rda")
 library(dplyr)
 workout3_comp <- filter(workout3,
                         complete.cases(workout3))
