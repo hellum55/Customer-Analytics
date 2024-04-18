@@ -5,8 +5,6 @@ library(DataExplorer)
 
 data <- read.csv("nicehair_clean.csv")
 #And we'll just add one more column at this stage, we'll calculate the line total by multiplying the Quantity by the UnitPrice for each line:
-data <- Data %>% 
-  mutate(lineTotal = Quantity * UnitPrice)
 
 #Lets see the revenue through time:
 options(repr.plot.width=8, repr.plot.height=3)
@@ -24,6 +22,18 @@ data %>%
   summarise(revenue = sum(revenue)) %>%
   ggplot(aes(x = day_of_week, y = revenue)) + geom_col() + labs(x = 'Day of Week', y = 'Revenue (£)', title = 'Revenue by Day of Week')
 
+#Lets see which products are the most popular
+# Count frequencies
+product_freq <- table(data$product_name)
+
+# Select top 15 products
+top_15 <- head(sort(product_freq, decreasing = TRUE), 15)
+
+# Plot
+barplot(top_15, main = "Top 15 Product Frequencies",
+        xlab = "Product Names", ylab = "Frequency",
+        las = 2, cex.names = 0.7, srt = -90)
+
 #NiceHair ships to a number of cities around Denmark. Let's drill into the data from that perspective and see what we can find out.
 citySummary <- data %>%
   group_by(city)%>%
@@ -34,5 +44,13 @@ citySummary <- data %>%
 
 head(citySummary, n = 10)
 sum(data$revenue)
+
+custSummary <- data %>%
+  group_by(user_id) %>%
+  reframe(revenue = revenue) %>%
+  ungroup() %>%
+  arrange(desc(revenue))
+
+head(custSummary, n = 10)
 
 

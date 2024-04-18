@@ -9,7 +9,7 @@ library(DataExplorer)
 library(forcats)
 
 ####Load the data:
-data <- read.csv("nicehair_data_final.csv", stringsAsFactors=TRUE,
+data_dirty <- read.csv("nicehair_data_final.csv", stringsAsFactors=TRUE,
                     na.strings = c("", " ", "NA", "N/A", ".", "NaN", "MISSING"))
 
 summary(data$device)
