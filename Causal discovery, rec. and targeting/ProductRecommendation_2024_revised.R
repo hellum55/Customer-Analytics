@@ -106,7 +106,7 @@ View (data_copy)
 data_wNA = na.omit(data_copy) # remove missing data from the dataset
 # learn the structure (e.g., TAN structure)
 dag = tree.bayes(data_wNA, "class") 
-graphviz.plot(dag)
+plot(dag)
 # learn the parameters
 bn.mle <- bn.fit (dag, data = data_wNA, method = "mle")
 bn.fit.barchart(bn.mle$V1)
@@ -116,6 +116,7 @@ bn.fit.barchart(bn.mle$V1)
 # e.g., given a new customer has reported the following preferences 
 # for V1=5, V2=1, V3=1, what is the estimated preference for V4?
 library (gRain)
+library (graph)
 junction <- compile (as.grain(bn.mle))
 
       # New: Warning due to 0 probabilities tables, we use Bayesian parameter estimation

@@ -264,12 +264,10 @@ Finaææy, given the measurement model has been examined and validated in the CF
 
 ##### 4. Confirmatory Factor Analyis (CFA)
 ```{r eval=FALSE}
-CFA.model <- 'CS =~ x18 + x9 + x16
+CFA.model <-'CS =~ x18 + x9 + x16
              PV =~ x11 + x6 + x13
              MK =~ x12 + x7 + x10
              TS =~ x8 + x14
-    # Correlations between exogeneous constructs are optional because
-    # by default, all exogenous latent variables in a CFA model are allowed to correlate
         CS ~~ PV
         CS ~~ MK
         CS ~~ TS
@@ -385,12 +383,12 @@ lavaanPlot(model = fit, node_options = list(shape = "box", fontname = "Helvetica
 
 SEM.model1 <- '
 # Measurement model
-        CS =~ x18 + x9 + x16
-        PV =~ x6 + x13r
-        MK =~ x12 + x7 + x10
-        TS =~ x8 + x14
+CS =~ x18 + x9 + x16
+PV =~ x6 + x13r
+MK =~ x12 + x7 + x10
+TS =~ x8 + x14
 # Structural model
-        x19 ~ CS + PV + MK + TS'
+x19 ~ CS + PV + MK + TS'
 
 # fit the model
 fitSEM1 <- sem(SEM.model1, data=data, se ="robust", estimator = "ML") 

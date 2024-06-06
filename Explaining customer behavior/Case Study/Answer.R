@@ -1,7 +1,7 @@
 library(foreign)
 library(lavaan)
 ####Load the data:
-data <- readxl::read_excel("~/Cand. Merc./Customer-Analytics/Explaining customer behavior/Case Study/Dataset.xlsx")
+data <- readxl::read_excel("Dataset.xlsx")
 data$No <- NULL
 str(data)
 

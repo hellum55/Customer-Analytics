@@ -32,7 +32,7 @@ library(arulesViz)
 # Plot the resulting rules
 plot(retail.rules)
 # Interactive plot - select area by marking two opposite corners of a rectangle
-#plot(retail.rules, engine="interactive")
+plot(retail.rules, engine="interactive")
 # Find the subset of rules with highest lift
 retail.hi <- head(sort(retail.rules, by="lift"), 50)
 inspect(retail.hi)

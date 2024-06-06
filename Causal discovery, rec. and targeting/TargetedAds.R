@@ -1,7 +1,5 @@
 # -----------------------------------------
 # Bayesian Nets, Course Customer Analytics
-# March 2024
-# AAT 
 # -----------------------------------------
 
 
@@ -137,7 +135,7 @@ ELP
 # Application 2_beta (extension)
 ################################################################################
 
-targeted.adv.beta <- read.csv("~/Cloud/Documents/Alina Tudoran/TEACHING/Postgraduate/Customer Analytics_2024/2. BN /Lecture_Applications/Data/simulated_targeted_adv_data.csv", header = T, colClasses = "factor")
+targeted.adv.beta <- read.csv("simulated_targeted_adv_data.csv", header = T, colClasses = "factor")
 head (targeted.adv.beta)
 str (targeted.adv.beta)  
 

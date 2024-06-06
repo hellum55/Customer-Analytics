@@ -18,6 +18,7 @@
 # 1. Building the structure and parameters manually 
 ##################################################
 library(bnlearn)
+install.packages("rtools")
 # Create an empty graph 
 dag <- empty.graph(nodes = c("Fuse","Plea","Atti","Comm"))
 # Add the arcs that encode the direct dependencies between variables
@@ -128,8 +129,9 @@ bn
 ###########################################################################
 # 2. Learning the structure and parameters from observational data
 ###########################################################################
+library(rgraphviz)
 retention <- read.csv("retention.csv", header = T, colClasses = "factor" )
-retention_test <- read.csv("~/Cloud/Documents/Alina Tudoran/TEACHING/Postgraduate/Customer Analytics_2024/2. BN /Lecture_Applications/Data/retention_test.csv", header = T, colClasses = "factor" )
+retention_test <- read.csv("retention_test.csv", header = T, colClasses = "factor" )
  
 head (retention)
 str (retention)
@@ -145,7 +147,7 @@ str (retention)
     # Constrained-based alg. do not work with missing data
     par(mfrow = c(2, 2))
     bn.gs <- gs (retention, alpha = 0.05, test ="x2") # alternative test ="mi"
-    #plot(bn.gs, main = "Grow shrink_X2")
+    plot(bn.gs, main = "Grow shrink_X2")
     graphviz.plot (bn.gs, main = "Grow shrink_X2") 
     # notice that in the constrained-based alg some links are undirected.
     # this occurs because the algorithm cannot establish the direction of "causality". 

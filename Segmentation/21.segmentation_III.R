@@ -35,6 +35,7 @@ set.seed(1234)
 MD.b28 <- bootFlexclust(MD.x, 2:8, nrep = 10,nboot = 100)
 plot(MD.b28, xlab = "number of segments",ylab = "adjusted Rand index")
 # Gorge plot
+library(modeltools)
 MD.km28 <- relabel(MD.km28)
 histogram(MD.km28[["4"]], data = MD.x, xlim = 0:1)
 # Segment level stability across solutions

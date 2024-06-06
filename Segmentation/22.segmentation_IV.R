@@ -42,6 +42,7 @@ slsaplot(MD.km28)
 MD.k4 <- MD.km28[["4"]]
 MD.r4 <- slswFlexclust(MD.x, MD.k4)
 plot(MD.r4, ylim = 0:1, xlab = "segment number",ylab = "segment stability")
+
 # mixture distribution
 set.seed(1234)
 MD.m28 <- stepFlexmix(MD.x ~ 1, k = 2:8, nrep = 10, model = FLXMCmvbinary(), 

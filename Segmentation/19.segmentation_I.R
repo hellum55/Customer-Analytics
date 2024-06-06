@@ -4,7 +4,7 @@ library(NbClust)
 rm(list=ls())
 
 ## Preparation
-HBAT <- read.dta13("c:/users/au78328/OneDrive - Aarhus Universitet/home/customer_analytics/s24/analysis/hbat.dta")
+HBAT <- read.dta13("hbat.dta")
 # first we make our own id variable based on the original order
 nobs <- nrow(HBAT)
 HBAT$id <- seq(1,nobs)
