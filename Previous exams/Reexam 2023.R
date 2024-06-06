@@ -11,8 +11,8 @@ head(df)
 # Create measurement model
 simple_mm <- constructs(
   composite("SIC",multi_items("sic_",1:6, 'global_sic'),weights = mode_B),
-  composite("PL",multi_items("pl_",1:3),),
-  composite("PQ",multi_items("pq_",1:4),),
+  composite("PL",multi_items("pl_",1:3)),
+  composite("PQ",multi_items("pq_",1:4)),
   composite("PI",multi_items("pi_",1:5)),
   composite("WTP",single_item("wtp")))
 
@@ -28,7 +28,7 @@ pls_model <- estimate_pls(data = df,
                           structural_model = simple_sm,
                           inner_weights = path_weighting,
                           missing = mean_replacement,
-                          missing_value = "-99")
+                          missing_value = "NA")
 # Summarize the model results
 summary_pls <- summary(pls_model)
 

@@ -27,7 +27,7 @@ pls_model <- estimate_pls(data = df,
                                       structural_model = simple_sm,
                                       inner_weights = path_weighting,
                                       missing = mean_replacement,
-                                      missing_value = "-99")
+                                      missing_value = "NA")
 # Summarize the model results
 summary_pls <- summary(pls_model)
 # Iterations to converge
